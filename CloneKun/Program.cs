@@ -1,6 +1,13 @@
+using CloneKun.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var settings = builder.Configuration
+                .GetRequiredSection("ConnectionStrings"); //read data from appsettings.json
+builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(settings["AppDbContext"]));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

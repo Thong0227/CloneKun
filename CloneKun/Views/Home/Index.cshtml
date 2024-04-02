@@ -1,7 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model CloneKun.Models.Register
 
 <div class="text-center">
     Viết nội dung ở đây
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NumberOfRegistrations" class="control-label"></label>
+            <input asp-for="NumberOfRegistrations" class="form-control" />
+            <span asp-validation-for="NumberOfRegistrations" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+    <span>Lôi dữ liệu ra: @Model.NumberOfRegistrations</span>
 </div>

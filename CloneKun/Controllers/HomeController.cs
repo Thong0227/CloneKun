@@ -1,25 +1,53 @@
-﻿using CloneKun.Models;
+﻿using CloneKun.Data;
+using CloneKun.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace CloneKun.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AppDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            Register register = await _context.Register.FirstOrDefaultAsync();
+            if (register == null)
+            {              
+                return NotFound();
+            }
+
+            return View(register);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit()
         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Cộng thêm 8 vào số người đăng ký
+                    int incrementValue = 8;
+                    _context.Database.ExecuteSqlInterpolated($"UPDATE Register SET NumberOfRegistrations = NumberOfRegistrations + {incrementValue}");
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    // Xử lý ngoại lệ nếu có
+                    ModelState.AddModelError("", "Error occurred while saving changes.");
+                    return RedirectToAction(nameof(Error));
+                }
+            }
             return View();
         }
 

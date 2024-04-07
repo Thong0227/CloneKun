@@ -1,20 +1,663 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    string formattedNumber = string.Format("{0:N0}", Model.NumberOfRegistrations);
+    string formattedNumberWithDot = formattedNumber.Replace(",", ".");
 }
 @model CloneKun.Models.Register
 
-<div class="text-center">
-    Viết nội dung ở đây
-    <form asp-action="Edit">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="NumberOfRegistrations" class="control-label"></label>
-            <input asp-for="NumberOfRegistrations" class="form-control" />
-            <span asp-validation-for="NumberOfRegistrations" class="text-danger"></span>
+<body class="h-100 d-flex flex-column">
+    <section id="top-page">
+        <div class="container-fluid p-0">
+            <picture d-block w-100>
+                <!-- Ảnh cho màn hình nhỏ -->
+                <source srcset="./images/banner/banner1-mobile.png"
+                        media="(max-width: 576px)">
+                <!-- Ảnh cho màn hình lớn -->
+                <source srcset="./images/banner/banner1.png"
+                        media="(max-width: 1200px)">
+
+                <source srcset="./images/banner/banner1.png"
+                        media="(min-width: 1200px)">
+                <!-- Ảnh mặc định -->
+                <img loading="lazy" src="./images/banner/banner1.png"
+                     class="img-fluid" alt="Responsive image">
+            </picture>
+            <div class="container background-top">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="custom-p-logo mt-sm-1">
+                            <img loading="lazy" src=""
+                                 alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center custom-screen">
+                    <div class="col-auto col-sm-7 position-relative">
+                        <picture d-block w-100>
+                            <!-- Ảnh cho màn hình nhỏ -->
+                            <source srcset="./images/banner/banner-box.png"
+                                    media="(max-width: 576px)">
+                            <!-- Ảnh cho màn hình lớn -->
+                            <source srcset="./images/banner/banner-box.png"
+                                    media="(max-width: 1200px)">
+
+                            <source srcset="./images/banner/banner-box.png"
+                                    media="(min-width: 1200px)">
+                            <!-- Ảnh mặc định -->
+                            <img loading="lazy"
+                                 src="./images/banner/banner-box.png"
+                                 class="img-fluid" alt="Responsive image">
+                        </picture>
+                        <div id="total-kun" class="position-absolute f-f-SVN-Bali">@formattedNumberWithDot</div>
+                    </div>
+                </div>
+                <div class="row f-f-SVN-Bali justify-content-center">
+                    <div class="col-sm-10 col-md-12 col-12 text-title-1 justify-content-center d-sm-flex">
+                        <div class="line-height-milk">
+                            Techmedcom đồng hành cùng
+                            <span id="total-child">38.200</span>
+                            <span>
+                                chủ nhà thuốc trên chặng đường xây dựng tủ thuốc cho em bé có hoàn cảnh khó
+                                khăn
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" />
+        <div class="container mt-5">
+            <div class="row mb-3 d-none d-sm-flex">
+                <div class="col-sm-4 col-xl-6 pe-0">
+                    <picture d-block w-100>
+                        <!-- Ảnh cho màn hình nhỏ -->
+                        <source srcset="./images/banner/banner2.jpg"
+                                media="(max-width: 720px)">
+                        <!-- Ảnh cho màn hình lớn -->
+                        <source srcset="./images/banner/banner2.jpg"
+                                media="(max-width: 992px)">
+                        <source srcset="./images/banner/banner2.jpg"
+                                media="(min-width: 992px)">
+                        <!-- Ảnh mặc định -->
+                        <img loading="lazy" src="./images/banner/banner2.jpg"
+                             class="img-fluid banner-2" alt="Responsive image">
+                    </picture>
+                </div>
+                <div class="col-sm-8 col-xl-6 ps-0 position-relative">
+                    <div class="position-absolute ">
+                        <div class="hashtag">
+                            <img loading="lazy" class="w-100 hashtag-img"
+                                 src="https://skce-public.mltechsoft.com/images/top-page/label-hashtag-tablet.svg"
+                                 alt="">
+                            <div class="color-primary2 position-absolute hashtag-title">
+                                <span class="f-f-Montserrat-Bold hashtag-title-normal">
+                                    Với mỗi lượt chia sẻ kèm Hashtag*
+                                </span>
+                                <span class="f-f-Montserrat-Bold hashtag-title-character">#TuThuocChoEm</span>
+                            </div>
+                        </div>
+                        <div class="hashtag-title-pc hashtag-title-tablet">
+                            <div class="f-f-Montserrat-Regular color-primary1 hashtag-title-normal">
+                                <b>
+                                    Bạn đã đồng
+                                    thời
+                                </b>
+                            </div>
+                            <div class="f-f-Montserrat-Bold color-primary1 hashtag-title-character">
+                                Bạn đã đồng thời
+                                giúp đỡ 01 trẻ em được tiếp xúc với nền Y TẾ tiên tiến
+                            </div>
+                        </div>
+                        <button class="btn-top position-absolute" data-bs-toggle="modal" data-bs-target="#postcardModal"
+                                onclick="removeDisable()">
+                            <span class="f-f-Montserrat-Regular text-white">
+                                <b>
+                                    Chung tay vì mầm non tương lai của đất
+                                    nước
+                                </b>
+                            </span>
+                            <img loading="lazy" src="https://skce-public.mltechsoft.com/images/top-page/arrow_next.svg"
+                                 alt="">
+                        </button>
+                    </div>
+                    <img loading="lazy" class="w-100 background-hashtag-pc d-none d-xl-flex"
+                         src="https://skce-public.mltechsoft.com/images/top-page/background-hashtag-pc.png" alt="">
+                    <img loading="lazy" class="w-100 background-hashtag-tablet d-none d-sm-flex d-xl-none"
+                         src="https://skce-public.mltechsoft.com/images/top-page/background-hashtag-tablet.png" alt="">
+                </div>
+            </div>
+            <div class="row mb-5 d-sm-none">
+                <div class="background-title text-title-2 position-relative">
+                    <div class="position-absolute hashtag">
+                        <img loading="lazy" class="w-100"
+                             src="https://skce-public.mltechsoft.com/images/top-page/background-hashtag.svg" alt="">
+                        <span class="f-f-Montserrat-Bold f-s-18 color-primary2 position-absolute hashtag-title">
+                            Với mỗi
+                            lượt
+                            chia sẻ kèm Hashtag* #TuThuocChoEm
+                        </span>
+                    </div>
+                    <div class="f-f-Montserrat-Regular color-primary1 f-s-18"><b>Bạn đã đồng thời</b></div>
+                    <div class="f-f-Montserrat-Bold color-primary1 f-s-18">
+                        Bạn đã đồng thời giúp đỡ 01 trẻ em được tiếp
+                        xúc với nền Y TẾ tiên tiến
+                    </div>
+                    <button class="btn-top position-absolute" data-bs-toggle="modal" data-bs-target="#postcardModal"
+                            onclick="removeDisable()">
+                        <span class="f-f-Montserrat-Regular text-white">
+                            <b>
+                                Chung tay vì mầm non tương lai của đất
+                                nước
+                            </b>
+                        </span>
+                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/top-page/arrow_next.svg"
+                             alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <span class="f-f-Montserrat-Regular f-s-14 text-note" style="color:#007469;">
+                    <b>
+                        <i>
+                            * Lượt chia sẻ được
+                            tính khi người tham gia thực hiện chia sẻ thông tin dự án hoặc postcard lên Facebook kèm
+                            hashtag #TuThuocChoEm hoặc đăng lại (repost) lên Tiktok.* KUN sẽ dành tặng số lượng hộp sữa
+                            KUN 100% Sữa Tươi tương đương với số lượng hashtag được hệ thống kiểm đo Social Listening
+                            đếm được và đạt mức NỬA TRIỆU hộp sữa ở giai đoạn 1.
+                        </i>
+                    </b>
+                </span>
+
+            </div>
         </div>
-    </form>
-    <span>Lôi dữ liệu ra: @Model.NumberOfRegistrations</span>
-</div>
+    </section>
+
+    <script>
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return parts.join(",");
+        }
+    </script>
+    <!-- <link rel="stylesheet" href="/stylesheets/content.css"> -->
+    <section id="content">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col col-lg-5 d-lg-flex align-items-lg-center">
+                    <div class="paragraph">
+                        <p class="you-know"><b>Bạn có biết?</b></p>
+                        <p class="you-know-content">
+                            Chỉ khoảng <b>25%</b> tổng dân số, được chăm sóc sức khỏe ban đầu
+                            ngay từ
+                            trong trường học. Chính phủ đã ban hành Chương trình Sức khỏe học đường giai đoạn 2021-2025,
+                            thể hiện sự quyết tâm và khát vọng của quốc gia vào việc chăm sóc cho thế hệ tương lai. Hy
+                            vọng rằng việc tăng cường chăm sóc sức khỏe học đường sẽ giúp cải thiện tình hình sức khỏe
+                            của học sinh và tạo nền tảng cho tương lai một Việt Nam khỏe mạnh! 🌟🙏
+                        </p>
+                        <img loading="lazy" src="./images/banner/banner3.jpg"
+                             class="w-100 d-sm-none banner-3" alt="">
+                        <img loading="lazy" src="./images/banner/banner3.jpg"
+                             class="w-100 d-none d-sm-block d-lg-none banner-3" alt="">
+                        <p class="you-know-content mt-3">
+                            Thấu hiểu điều đó, <b>Techmedcom</b> quyết định khởi động dự án
+                            <b>
+                                “Tủ
+                                Thuốc Cho Em”
+                            </b> đồng hành cùng Chương Trình <b>
+                                “Sức khỏe học đường giai đoạn
+                                2021-2025”
+                            </b> được
+                            Chính phủ phê duyệt hướng tới mục tiêu duy trì, đẩy mạnh hoạt động giáo dục, chăm sóc sức
+                            khỏe trẻ em, học sinh trong các cơ sở giáo dục mầm non và phổ thông. Dự án được triển khai
+                            với hoạt động trao tặng <b></b> cho các trường mầm non, tiểu học gặp khó khăn nhằm bảo vệ
+                            sức khỏe ban đầu ngay từ trong trường học giúp các em tăng sức đề kháng để học tập, vui
+                            chơi.
+                        </p>
+                        <p class="you-know-content">
+                            Với mong muốn <b>lan tỏa tinh thần yêu thương chia sẻ</b>, Kun hi
+                            vọng được đồng hành cùng tất cả mọi người chung tay góp sức trong chiến dịch này cho các em.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6 d-none d-lg-flex align-items-lg-center">
+                    <img loading="lazy" src="./images/banner/banner3.jpg"
+                         class="w-100 banner-3" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color:#E0F1ED">
+            <div class="container d-flex align-items-center p-4">
+                <div class="row">
+                    <div class="col">
+                        <span class="f-f-Montserrat-Regular text-slide-image-note">
+                            *Toàn bộ hình ảnh của các em bé vùng
+                            cao được sử
+                            dụng trong dự án đã được nhãn hàng Techmedcom xin phép sử dụng với ba mẹ và người giám hộ của
+                            các
+                            em.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="map">
+        <div id="map-content">
+            <div class="position-relative" style="width: fit-content;">
+                <img loading="lazy" src="./images/banner/banner-map.png" alt="">
+                <div id="provinces" class="w-100 h-100 position-absolute start-0 top-0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const milkProvince = [{ "_id": "65f415a1470239f4262311c7", "milk": "0", "child": "0", "address": "Thanh Hóa", "createdAt": "2024-03-21T11:29:26.043Z", "updatedAt": "2024-03-21T11:29:26.043Z", "slug": "cao-bang" },
+        { "_id": "65f415a2470239f4262311c9", "milk": "0", "child": "0", "address": "Nghệ An", "createdAt": "2024-03-21T11:29:26.046Z", "updatedAt": "2024-03-21T11:29:26.046Z", "slug": "bac-kan" },
+        { "_id": "65f415a2470239f4262311cb", "milk": "0", "child": "0", "address": "Hà Giang", "createdAt": "2024-03-21T11:29:26.047Z", "updatedAt": "2024-03-21T11:29:26.047Z", "slug": "lao-cai" },
+        { "_id": "65f415a2470239f4262311cd", "milk": "0", "child": "0", "address": "Điện Biên", "createdAt": "2024-03-21T11:29:26.049Z", "updatedAt": "2024-03-21T11:29:26.049Z", "slug": "yen-bai" },
+        { "_id": "65f415a2470239f4262311cf", "milk": "0", "child": "0", "address": "Sơn La", "createdAt": "2024-03-21T11:29:26.051Z", "updatedAt": "2024-03-21T11:29:26.051Z", "slug": "dien-bien" },
+        { "_id": "65f415a2470239f4262311d1", "milk": "0", "child": "0", "address": "Quảng Nam", "createdAt": "2024-03-21T11:29:26.052Z", "updatedAt": "2024-03-21T11:29:26.052Z", "slug": "bac-giang" },
+        { "_id": "65f415a2470239f4262311d3", "milk": "0", "child": "0", "address": "Sóc Trăng", "createdAt": "2024-03-21T11:29:26.054Z", "updatedAt": "2024-03-21T11:29:26.054Z", "slug": "thai-nguyen" },
+        ];
+        if (milkProvince) {
+            let html = ""
+            milkProvince.forEach(element => {
+                html += `<div class="province ${element.slug} ${(element.milk != '0' || element.child != '0') ? 'active' : ''}">
+                                    <div class="name">
+                                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/content/name-bg.png" alt="">
+                                        <span class="province-name text-nowrap"><b>${element.address}</b></span>
+                                    </div>
+                                    <div class="position text-center">
+                                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/content/position-icon.png" alt="">
+                                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/content/milk-box.png" alt="">
+                                    </div>
+
+                                </div>`
+            });
+            $("#provinces").html(html)
+        }
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return parts.join(",");
+        }
+        function initPosition(address, milk, child) {
+            $("#positionModal .province_name").text(address)
+            $("#positionModal #count_milk").text(numberWithCommas(milk))
+            $("#positionModal #count_child").text(numberWithCommas(child))
+        }
+        const slider = document.querySelector('#map-content');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5; // Có thể điều chỉnh tỷ lệ này để thay đổi tốc độ cuộn
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+    <section class="m-slide-image">
+        <div class="color-primary1 f-f-Montserrat-Bold d-flex justify-content-center align-items-center slide-image-text">
+            <div>Hình Ảnh “Tủ Thuốc Cho Em” </div>
+        </div>
+        <div class="slider1 mb-3">
+            <div class="slide-track">
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide1.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide2.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide3.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide4.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide5.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide6.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide7.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide8.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide9.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide10.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide11.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide12.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide13.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide14.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide4.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="slider2">
+            <div class="slide-track">
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide14.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide13.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide12.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide11.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide10.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide9.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide8.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide7.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide6.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide5.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide4.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide3.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide2.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide1.jpg" alt="" />
+                </div>
+                <div class="slide">
+                    <img class="height-width-custom"
+                         src="./images/slider/slide12.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color:#E0F1ED">
+            <div class="container d-flex align-items-center p-4">
+                <div class="row">
+                    <div class="col">
+                        <span class="f-f-Montserrat-Regular text-slide-image-note">
+                            *Toàn bộ hình ảnh của các em bé vùng
+                            cao được sử
+                            dụng trong dự án đã được nhãn hàng Techmedcom xin phép sử dụng với ba mẹ và người giám hộ của
+                            các
+                            em.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="bot-page">
+        <div class="contribute-together">
+            <div class="container-md px-0 px-md-3 container-fluid position-relative">
+                <picture d-block w-100>
+                    <!-- Ảnh cho màn hình nhỏ -->
+                    <source srcset="./images/slider/slide2.jpg"
+                            media="(max-width: 720px)">
+                    <!-- Ảnh cho màn hình lớn -->
+                    <source srcset="./images/banner/banner-bottom.jpg"
+                            media="(max-width: 992px)">
+                    <source srcset="./images/banner/banner-bottom.jpg"
+                            media="(min-width: 992px)">
+                    <!-- Ảnh mặc định -->
+                    <img loading="lazy" src="./images/banner/banner-bottom.jpg"
+                         class="img-fluid img-banner-bottom" alt="Responsive image">
+                </picture>
+
+                <img loading="lazy" class="img_cloud_1"
+                     src="https://skce-public.mltechsoft.com/images/bot-page/cloud-1.png" alt="">
+                <img loading="lazy" class="img_cloud_2"
+                     src="https://skce-public.mltechsoft.com/images/bot-page/cloud-1.png" alt="">
+                <div class="position-absolute group_thanks text-center">
+                    <p class="thank_text text-start">
+                        Cảm ơn bạn đã đồng hành cùng Techmedcom <br class="d-none d-md-block">
+                        Trao yêu thương đến các em bé gặp khó khăn
+                    </p>
+                    <button class="btn btn_together m-auto m-md-0 mt-4" data-bs-toggle="modal"
+                            data-bs-target="#postcardModal" onclick="removeDisable()">
+                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/bot-page/arrow_next.svg"
+                             alt="">
+                        <span><b>Chung tay vì mầm non tương lai của đất nước</b></span>
+                    </button>
+                </div>
+            </div>
+            <div id="footer" class="mt-0 mt-md-2">
+                <div class="container">
+                    <div class="row justify-content-start align-items-center">
+                        <div class="col-lg-6 col-12">
+                            <div class="col-auto">
+                                <img src="https://skce-public.mltechsoft.com/images/bot-page/IDP.svg" loading="lazy" alt="">
+                            </div>
+                            <div class="col-auto">
+                                <span class="f-f-Montserrat-Medium"><i>Bản quyền thuộc về Techmedcom</i></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <p class="footer_title">Văn phòng Hà Nội</p>
+                                    <div class="d-flex align-items-start justify-content-start gap-3 mt-3">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>
+                                            60B Nguyễn Huy Tưởng, Thanh Xuân, Hà Nội
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                AOS.init();
+            </script>
+        </div>
+    </section>
+    <link rel="stylesheet" href="https://skce-public.mltechsoft.com/stylesheets/postcard.modal.css">
+    <div class="modal fade" id="postcardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img loading="lazy" class="w-100"
+                         src="https://skce-public.mltechsoft.com/images/modal/postcard-banner.jpg" alt="">
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark-large"></i>
+                    </button>
+                </div>
+                <div class="modal-body d-flex flex-column">
+                    @Html.AntiForgeryToken()
+                    <span class="title">Tên của bạn là*</span>
+                    <input type="text" id="username" class="form-control mt-3" maxlength="13"
+                           onkeyup="onInputNameChange(event)">
+                    <div class="sum-character">
+                        <span class="alert-name invisible">Vui lòng nhập tên của bạn</span>
+                        <span><span id="count-name">0</span><span>/13</span> </span>
+                    </div>
+                    <span class="title mt-1">Giới tính</span>
+                    <div class="gender-group mt-3">
+                        <label class="flex-fill">
+                            Nữ
+                            <input type="radio" class="gender-input" name="gender" value="0">
+                        </label>
+                        <label class="flex-fill">
+                            Nam
+                            <input type="radio" class="gender-input" name="gender" value="1">
+                        </label>
+                    </div>
+                    <button class="btn btn-create-postcard mt-4" onclick="generatorPostcard(this)">
+                        <b>Tạo Postcard với tên của bạn</b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <link rel="stylesheet" href="https://skce-public.mltechsoft.com/stylesheets/result.modal.css">
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img loading="lazy" src="https://skce-public.mltechsoft.com/images/top-page/logo.svg" alt="">
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark-large"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>Cảm ơn bạn đã góp thêm yêu thương tới các em bé có hoàn cảnh khó khăn</span>
+                    <img loading="lazy" id="img-result" src="" class="w-100" alt="">
+                    <canvas id="postcardCanvas" width="800" height="1000" class="d-none"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <img loading="lazy" src="https://skce-public.mltechsoft.com/images/modal/footer-banner.png"
+                         class="w-100" alt="">
+                    <button class="btn" onclick="downloadPostCard()">
+                        Lưu Postcard
+                        <i class="fa-regular fa-arrow-down-to-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://skce-public.mltechsoft.com/stylesheets/position.modal.css">
+    <div class="modal fade" id="positionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="position-relative">
+                        <img loading="lazy" class="img_bg"
+                             src="https://skce-public.mltechsoft.com/images/position-modal/banner.png" alt="">
+                        <div class="address">
+                            <img loading="lazy"
+                                 src="https://skce-public.mltechsoft.com/images/position-modal/icon_location.svg" alt="">
+                            <span class="province_name">Tuyên Quang</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark-large f-s-24"></i>
+                    </button>
+                </div>
+                <div class="modal-body row px-0 px-md-2 gap-md-3 gap-0">
+                    <div class="item col px-3">
+                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/position-modal/milk.png"
+                             alt="">
+                        <div class="group_count">
+                            <img loading="lazy" src="https://skce-public.mltechsoft.com/images/position-modal/bg_1.png"
+                                 alt="">
+                            <span class="text_count" id="count_milk">10.000.000</span>
+                        </div>
+                        <div class="title">Hộp sữa</div>
+                        <div class="">Đã được công nhận để trao tặng</div>
+                    </div>
+                    <div class="item col px-3">
+                        <img loading="lazy" src="https://skce-public.mltechsoft.com/images/position-modal/baby.png"
+                             alt="">
+                        <div class="group_count">
+                            <img loading="lazy" src="https://skce-public.mltechsoft.com/images/position-modal/bg_1.png"
+                                 alt="">
+                            <span class="text_count" id="count_child">5.000.000</span>
+                        </div>
+                        <div class="title">Em bé</div>
+                        <div class="">Đã được trao tặng</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://skce-public.mltechsoft.com/stylesheets/ios-image-modal.css">
+    <div class="modal fade" id="ios-image-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                        <i class=" fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img loading="lazy" src="" class="w-100" alt="">
+                </div>
+                <div class="modal-footer">
+                    <img loading="lazy" src="https://skce-public.mltechsoft.com/images/modal/arrow-ios.png" alt="">
+                    <span>Nhấn giữ hình để lưu postcard về máy nhé</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

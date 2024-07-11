@@ -15,7 +15,7 @@
     var img = new Image();
     img.crossOrigin = "anonymous";
 
-    let positionY = [708, 708, 708, 708, 708, 708, 708];
+    let positionY = [783, 783, 783, 783, 783, 783, 783, 783, 783, 783];
 
     let longName = [0, 3, 4, 6];
     let postcard = Math.floor(Math.random() * positionY.length);
@@ -25,26 +25,25 @@
     const gender = $('#postcardModal .gender-input:checked').val()
 
     let prefix = 'cô/chú '
-
     if (gender == 0) prefix = prefix.replace("cô/chú", "cô");
     else if (gender == 1) prefix = prefix.replace("cô/chú", "chú");
-    let suffixe = '';
+    let suffixe = ' ạ!';;
 
-    var font = new FontFace('Ltim', 'url(./font/Ltim.otf)');
+    var font = new FontFace('SVN-BRADLEY-HAND', 'url(./font/SVN-BRADLEY-HAND.otf)');
 
     document.fonts.add(font);
 
     img.onload = function () {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        ctx.font = '37px Ltim';
+        ctx.font = 'bold 30px SVN-BRADLEY-HAND';
 
 
         ctx.textBaseline = "middle";
 
         var parts = [
-            { text: prefix, color: "black" },
+            { text: prefix, color: "#007469" },
             { text: userName, color: "red" },
-            { text: suffixe, color: "black" }
+            { text: suffixe, color: "#007469" }
         ];
 
         var totalWidth = 0;
@@ -60,7 +59,7 @@
 
         parts.forEach(function (part) {
             ctx.fillStyle = part.color;
-            ctx.fillText(part.text, x, y);
+            ctx.fillText(part.text, (x - 25), y);
 
             x += ctx.measureText(part.text).width;
         });
@@ -143,4 +142,44 @@ window.addEventListener('load', () => {
 function removeDisable() {
     $("#postcardModal .btn-create-postcard").prop('disabled', false)
 }
+
+$(document).ready(function () {
+    $('.autoplay-slider').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: '<button type="button" class="slick-prev"><img width="30" height="30" src="https://img.icons8.com/ios/50/back--v1.png" alt="back--v1"/></button>',
+        nextArrow: '<button type="button" class="slick-next"><img width="30" height="30" src="https://img.icons8.com/ios/50/forward--v1.png" alt="forward--v1"/></button>',
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    margin: 10
+                }
+            }
+        ]
+    });
+
+});
 1

@@ -1,32 +1,31 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Techmedcom</title>
+    <title>Tủ thuốc cho em</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Techmedcom" />
+    <meta name="robots" content="noindex">
+    <meta property="og:title" content="Tủ thuốc cho em" />
     <meta property="og:description"
           content="Techmedcom đồng hành cùng 38.200 chủ nhà thuốc trên chặng đường xây dựng tủ thuốc cho em bé có hoàn cảnh khó khăn." />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="Techmedcom tủ thuốc cho em" />
     <meta property="og:image" content="" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://skce-public.mltechsoft.com/javascripts/GVs.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGG9HMD2HG"></script>
-
-    <link href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css"
-          rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="~/lib/slick/slick.min.js"></script>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/slick/slick.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CloneKun.styles.css" asp-append-version="true" />
-    <script>
+</head>
+<body>
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    <script src="~/js/site.js"></script>
+    <script type="text/javascript">
         window.dataLayer = window.dataLayer || [];
 
         function gtag() { dataLayer.push(arguments); }
@@ -34,16 +33,10 @@
 
         gtag('config', 'G-QGG9HMD2HG');
     </script>
-</head>
-<body>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/site.js"></script>
+    <script src="https://skce-public.mltechsoft.com/javascripts/GVs.js"></script>
+    <script src="https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGG9HMD2HG"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
